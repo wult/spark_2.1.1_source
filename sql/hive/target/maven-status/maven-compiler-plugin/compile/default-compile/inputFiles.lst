@@ -1,0 +1,2 @@
+/home/workspace/workspaceScala/spark-2.1.1/sql/hive/src/main/scala/org/apache/spark/sql/hive/package-info.java
+/home/workspace/workspaceScala/spark-2.1.1/sql/hive/src/main/java/org/apache/hadoop/hive/ql/io/orc/SparkOrcNewRecordReader.java
