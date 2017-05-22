@@ -46,6 +46,9 @@ import org.apache.spark.util.Utils
  *
  * @note Once a SparkConf object is passed to Spark, it is cloned and can no longer be modified
  * by the user. Spark does not support modifying the configuration at runtime.
+  * Spark 程序的配置信息
+  * 加载所有以spark开头的环境变量 ,通过new SparkConf(false) 避免加载
+  * 不支持运行时修改配置信息
  */
 class SparkConf(loadDefaults: Boolean) extends Cloneable with Logging with Serializable {
 
@@ -70,6 +73,7 @@ class SparkConf(loadDefaults: Boolean) extends Cloneable with Logging with Seria
 
   private[spark] def loadFromSystemProperties(silent: Boolean): SparkConf = {
     // Load any spark.* system properties
+    //加载 spark.开头的配置变量
     for ((key, value) <- Utils.getSystemProperties if key.startsWith("spark.")) {
       set(key, value, silent)
     }
